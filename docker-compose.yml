@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: library-app
+    ports:
+      - "5000:5000"
+    environment:
+      DB_PATH: /app/data/library.db
+    volumes:
+      - library_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  library_data:
